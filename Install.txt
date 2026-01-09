@@ -1,0 +1,74 @@
+ATS Resume Builder - Installation Instructions
+=============================================
+
+PREREQUISITES
+-------------
+- Python 3.10 or higher
+- Node.js 18 or higher
+- Git
+
+STEP 1: Clone Repository
+------------------------
+git clone <repository-url>
+cd Job-Resume-Maker-Auto
+
+STEP 2: Backend Setup
+---------------------
+cd backend
+python -m venv venv
+
+Windows:
+  venv\Scripts\activate
+
+macOS/Linux:
+  source venv/bin/activate
+
+pip install -r requirements.txt
+
+STEP 3: Frontend Setup
+----------------------
+cd frontend
+npm install
+
+STEP 4: Environment Configuration
+---------------------------------
+Create file: backend/.env
+
+Contents:
+GEMINI_API_KEY=your-gemini-api-key
+OPENAI_API_KEY=optional
+DEBUG=true
+
+STEP 5: Start Backend
+---------------------
+cd backend
+uvicorn main:app --reload --port 8000
+
+STEP 6: Start Frontend
+----------------------
+cd frontend
+npm run dev
+
+STEP 7: Access Application
+--------------------------
+Open browser: http://localhost:5173
+API Docs: http://localhost:8000/docs
+
+STEP 8: Verify Installation
+---------------------------
+cd backend
+pytest tests/test_api.py -v
+
+Expected output: 18 passed
+
+TROUBLESHOOTING
+---------------
+1. Backend not starting: Check Python version (3.10+)
+2. Frontend blank: Check console for errors
+3. API errors: Verify GEMINI_API_KEY in .env
+4. PDF not downloading: pip install reportlab
+5. DOCX not downloading: pip install python-docx
+
+SUPPORT
+-------
+For issues, check the Setup.md file for detailed configuration.
